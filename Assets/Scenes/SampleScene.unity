@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  health: 20
+  health: 100
   invFrames: 2
   rb: {fileID: 535972190}
 --- !u!61 &535972192
@@ -755,6 +755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  soulDrop: 0
+  soul: {fileID: 0}
 --- !u!1 &987489196
 GameObject:
   m_ObjectHideFlags: 0

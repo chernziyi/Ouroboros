@@ -195,6 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  soulDrop: 1
+  soul: {fileID: 8779972021732132531, guid: 1130ea254d820496aa5cff05195131e0, type: 3}
 --- !u!114 &2170980922890510688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,4 +211,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacking: 0
   anim: {fileID: 2123600307456436648}
-  damage: 10
+  damage: 5
