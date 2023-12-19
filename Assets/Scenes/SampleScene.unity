@@ -407,6 +407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  health: 20
+  invFrames: 2
   rb: {fileID: 535972190}
 --- !u!61 &535972192
 BoxCollider2D:
@@ -797,6 +799,7 @@ GameObject:
   - component: {fileID: 1860557847}
   - component: {fileID: 1860557846}
   - component: {fileID: 1860557851}
+  - component: {fileID: 1860557852}
   m_Layer: 0
   m_Name: Rusher
   m_TagString: Enemy
@@ -977,6 +980,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+--- !u!114 &1860557852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860557845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedc3b1d4f561418e8e49d42d7f7b7bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacking: 0
+  anim: {fileID: 1860557846}
+  damage: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

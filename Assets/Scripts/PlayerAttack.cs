@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        Weapon1 = 1; //1 is fist, remind to make readme
+        Weapon1 = 1; //1 is fist, default weapon
         Weapon2 = 1;
     }
 
@@ -68,14 +68,18 @@ public class PlayerAttack : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            if(weaponUsed == 1)
+            if(attacking == true)
             {
-                other.GetComponent<Enemy>().TakeDamage(weaponDamage1);
-            }else if(weaponUsed == 2)
-            {
-                other.GetComponent<Enemy>().TakeDamage(weaponDamage2);
+                if (weaponUsed == 1)
+                {
+                    other.GetComponent<Enemy>().TakeDamage(weaponDamage1);
+                }
+                else if (weaponUsed == 2)
+                {
+                    other.GetComponent<Enemy>().TakeDamage(weaponDamage2);
+                }
+                Debug.Log("Strike!");
             }
-            Debug.Log("Strike!");
         }
     }
 
