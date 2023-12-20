@@ -372,10 +372,11 @@ GameObject:
   - component: {fileID: 535972194}
   - component: {fileID: 535972193}
   - component: {fileID: 535972192}
-  - component: {fileID: 535972191}
   - component: {fileID: 535972190}
   - component: {fileID: 535972195}
   - component: {fileID: 535972196}
+  - component: {fileID: 535972191}
+  - component: {fileID: 535972197}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -583,6 +584,20 @@ MonoBehaviour:
   weaponDamage2: 5
   atkDuration2: 0.1
   attacking: 0
+--- !u!114 &535972197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535972189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4064efcfe6bff4a7c953050c4d30b0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  souls: 0
+  level: 0
 --- !u!1 &908810684
 GameObject:
   m_ObjectHideFlags: 0

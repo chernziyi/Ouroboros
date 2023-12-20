@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator spawnEnemy(float spawnSpd, GameObject enemy)
     {
         yield return new WaitForSeconds(spawnSpd);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(spawnRadiusRange * -1, spawnRadiusRange), Random.Range(spawnRadiusRange * -1, spawnRadiusRange), 0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(spawnRadiusRange * -1, spawnRadiusRange) + transform.position.x, Random.Range(spawnRadiusRange * -1, spawnRadiusRange) + transform.position.y, 0), Quaternion.identity);
         if(spawnerOn == true)
         {
             StartCoroutine(spawnEnemy(spawnSpd1, enemy1));
