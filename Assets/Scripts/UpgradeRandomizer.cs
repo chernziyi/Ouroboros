@@ -32,21 +32,25 @@ public class UpgradeRandomizer : MonoBehaviour
         {
             Debug.Log("Common");
             //common upgrade
+            currentUpgrade = cUpgrades[Random.Range(0, cUpgrades.Length)];
         }
         else if (rarity <= ucWeight + cWeight && rarity > cWeight)
         {
             Debug.Log("Uncommon");
             //uncommon upgrade
+            currentUpgrade = ucUpgrades[Random.Range(0, ucUpgrades.Length)];
         }
         else if (rarity <= ucWeight + cWeight + rWeight && rarity > ucWeight + cWeight)
         {
             Debug.Log("Rare");
             //rare upgrade
+            currentUpgrade = rUpgrades[Random.Range(0, rUpgrades.Length)];
         }
         else if (rarity <= ucWeight + cWeight + rWeight + lWeight && rarity > ucWeight + cWeight + rWeight)
         {
             Debug.Log("Legendary");
             //legendary upgrade
+            currentUpgrade = lUpgrades[Random.Range(0, lUpgrades.Length)];
         }
     }
 }
