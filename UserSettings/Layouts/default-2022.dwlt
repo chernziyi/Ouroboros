@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1439
     height: 741
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -349,9 +349,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7e620000
-      m_LastClickedID: 0
-      m_ExpandedIDs: d2f9ffff1afbffff04610000
+      m_SelectedIDs: 0a610000
+      m_LastClickedID: 24842
+      m_ExpandedIDs: 1afbffff0a61000026610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -993,9 +993,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 107a09c2f1b804a689d5a97dfddbcfce, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 86fb607c2d4f744b299f0ac9ec78a0d4, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -6060800841953075819, guid: 107a09c2f1b804a689d5a97dfddbcfce, type: 2}
+  - m_Target: {fileID: 5883026309262712648, guid: 86fb607c2d4f744b299f0ac9ec78a0d4, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1053,7 +1053,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1061,30 +1061,30 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/chris/development/gaem/DevOuroboros
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 98610000
-    m_LastClickedID: 24984
-    m_ExpandedIDs: 000000008c61000000ca9a3b
+    m_SelectedIDs: b0610000
+    m_LastClickedID: 25008
+    m_ExpandedIDs: 00000000a661000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Scripts
+      m_OriginalName: Scripts
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 25008
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -1098,7 +1098,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c610000
+    m_ExpandedIDs: 00000000a6610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1190,7 +1190,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1582
+  m_LastSelectedObjectID: 24842
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
