@@ -301,7 +301,9 @@ MonoBehaviour:
   ucWeight: 10
   rWeight: 4
   lWeight: 1
-  currentUpgrade: 
+  currentUpgrade1: 
+  currentUpgrade2: 
+  currentUpgrade3: 
   cUpgrades:
   - c
   ucUpgrades:

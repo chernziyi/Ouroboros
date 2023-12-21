@@ -26,18 +26,18 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        Weapon1 = 0; //0 is fist, default weapon
-        Weapon2 = 0;
+        Weapon1 = 1; //1 is fist, default weapon
+        Weapon2 = 1;
     }
 
     private void Update()
     {
-        attackSpeed1 = weaponDatabase.attackSpeed[Weapon1];
-        attackSpeed2 = weaponDatabase.attackSpeed[Weapon2];
-        weaponDamage1 = weaponDatabase.damage[Weapon1];
-        weaponDamage2 = weaponDatabase.damage[Weapon2];
-        atkDuration1 = weaponDatabase.attackDuration[Weapon1];
-        atkDuration2 = weaponDatabase.attackDuration[Weapon2];
+        attackSpeed1 = weaponDatabase.attackSpeed[Weapon1 - 1];
+        attackSpeed2 = weaponDatabase.attackSpeed[Weapon2 - 1];
+        weaponDamage1 = weaponDatabase.damage[Weapon1 - 1];
+        weaponDamage2 = weaponDatabase.damage[Weapon2 - 1];
+        atkDuration1 = weaponDatabase.attackDuration[Weapon1 - 1];
+        atkDuration2 = weaponDatabase.attackDuration[Weapon2 - 1];
 
         if (timeBtwAttacks <= 0)
         {

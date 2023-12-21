@@ -15,7 +15,7 @@ public class PlayerLooter : MonoBehaviour
         {
             souls -= (level + 1) * (10 + (level + 2) * level);
             level += 1;
-            upgradeManager.GetComponent<UpgradeRandomizer>().RandomUpgrade();
+            upgradeManager.GetComponent<UpgradeRandomizer>().UpgradeMenu(3);
         }
     }
 
