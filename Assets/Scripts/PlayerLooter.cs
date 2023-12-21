@@ -6,6 +6,7 @@ public class PlayerLooter : MonoBehaviour
 {
     public double souls;
     public double level;
+    public GameObject upgradeManager;
 
     // Update is called once per frame
     void Update()
@@ -14,6 +15,7 @@ public class PlayerLooter : MonoBehaviour
         {
             souls -= (level + 1) * (10 + (level + 2) * level);
             level += 1;
+            upgradeManager.GetComponent<UpgradeRandomizer>().RandomUpgrade();
         }
     }
 

@@ -302,10 +302,14 @@ MonoBehaviour:
   rWeight: 4
   lWeight: 1
   currentUpgrade: 
-  cUpgrades: []
-  ucUpgrades: []
-  rUpgrades: []
-  lUpgrades: []
+  cUpgrades:
+  - c
+  ucUpgrades:
+  - uc
+  rUpgrades:
+  - r
+  lUpgrades:
+  - l
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,9 +432,10 @@ GameObject:
   - component: {fileID: 535972192}
   - component: {fileID: 535972190}
   - component: {fileID: 535972195}
-  - component: {fileID: 535972196}
   - component: {fileID: 535972191}
   - component: {fileID: 535972197}
+  - component: {fileID: 535972196}
+  - component: {fileID: 535972198}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -630,14 +635,15 @@ MonoBehaviour:
   anim: {fileID: 535972195}
   weaponUsed: 0
   Weapon1: 0
-  attackSpeed1: 0.2
-  weaponDamage1: 5
-  atkDuration1: 0.1
+  attackSpeed1: 0
+  weaponDamage1: 0
+  atkDuration1: 0
   Weapon2: 0
-  attackSpeed2: 0.2
-  weaponDamage2: 5
-  atkDuration2: 0.1
+  attackSpeed2: 0
+  weaponDamage2: 0
+  atkDuration2: 0
   attacking: 0
+  weaponDatabase: {fileID: 535972198}
 --- !u!114 &535972197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +658,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   souls: 0
   level: 0
+  upgradeManager: {fileID: 264567739}
+--- !u!114 &535972198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535972189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9780206c019246b3be43c80ab029ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed:
+  - 0.2
+  damage:
+  - 5
+  attackDuration:
+  - 0.1
 --- !u!1 &908810684
 GameObject:
   m_ObjectHideFlags: 0
