@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class LookAtCursor : MonoBehaviour
 {
-    private Transform tr;
-    [SerializeField] private float offset;
+    public float offset;
 
-    void Start()
+    private void Update()
     {
-        tr = this.transform;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-        Vector3 direction = mousePos - tr.position;
-
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-
-        Quaternion rotation = Quaternion.AngleAxis((angle - offset) * -1, Vector3.forward);
-        tr.rotation = rotation;
+        // Handles the weapon rotation
+        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
     }
 }

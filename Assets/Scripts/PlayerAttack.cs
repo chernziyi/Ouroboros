@@ -7,27 +7,31 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Animator anim;
 
     float timeBtwAttacks;
-    [SerializeField] float weaponUsed;
+    [HideInInspector] public float weaponUsed; // 1 or 2
 
     public int Weapon1;
-    [SerializeField] private float attackSpeed1;
-    [SerializeField] private float weaponDamage1;
-    [SerializeField] private float atkDuration1;
+    private float attackSpeed1;
+    private float weaponDamage1;
+    private float atkDuration1;
 
     public int Weapon2;
-    [SerializeField] private float attackSpeed2;
-    [SerializeField] private float weaponDamage2;
-    [SerializeField] private float atkDuration2;
+    private float attackSpeed2;
+    private float weaponDamage2;
+    private float atkDuration2;
 
-    [SerializeField] private bool attacking = false;
+    private bool attacking = false;
     float atkTime;
 
     public WeaponDatabase weaponDatabase;
 
+    [SerializeField] private Transform shotPoint;
+    [SerializeField] private Transform weapon;
+    [SerializeField] private GameObject projectile;
+
     private void Start()
     {
-        Weapon1 = 1; //1 is fist, default weapon
-        Weapon2 = 1;
+        Weapon1 = 1; // we cannot use 0 due to animation stuff.
+        Weapon2 = 2;
     }
 
     private void Update()
@@ -49,12 +53,24 @@ public class PlayerAttack : MonoBehaviour
                 atkTime = atkDuration1;
                 weaponUsed = 1;
 
+                if (weaponDatabase.ranged[Weapon1 - 1] == true)
+                {
+                    Instantiate(projectile, shotPoint.position, weapon.rotation);
+                    Debug.Log("Fire");
+                }
+
             } else if (Input.GetMouseButtonDown(1))
             {
                 anim.SetInteger("Weapon", Weapon2);
                 timeBtwAttacks = attackSpeed2;
                 atkTime = atkDuration2;
                 weaponUsed = 2;
+
+                if (weaponDatabase.ranged[Weapon2 - 1] == true)
+                {
+                    Instantiate(projectile, shotPoint.position, weapon.rotation);
+                    Debug.Log("Fire");
+                }
             }
         } else
         {
