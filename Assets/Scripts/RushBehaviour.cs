@@ -8,6 +8,7 @@ public class RushBehaviour : StateMachineBehaviour
     
     public float windup;
     public float duration;
+    public float delay;
     public float speed;
     private float wTimer;
     private float dTimer;
@@ -19,8 +20,8 @@ public class RushBehaviour : StateMachineBehaviour
         playerPos.x = GameObject.FindGameObjectWithTag("Player").transform.position.x;
         playerPos.y = GameObject.FindGameObjectWithTag("Player").transform.position.y;
 
-        wTimer = windup;
-        dTimer = duration;
+        wTimer = windup + Random.Range(0, delay);
+        dTimer = duration + Random.Range(0, delay);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   hostileRadius: 4
+  offsetRadius: 3
 --- !u!1101 &-3950738410190345747
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

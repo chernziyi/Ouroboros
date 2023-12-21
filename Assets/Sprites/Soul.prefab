@@ -172,4 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootType: Soul
-  playerLooter: {fileID: 0}
+  player: {fileID: 0}
+  scatterDistance: 0.5
