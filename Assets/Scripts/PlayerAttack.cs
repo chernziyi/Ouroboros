@@ -74,6 +74,7 @@ public class PlayerAttack : MonoBehaviour
             }
         } else
         {
+
             anim.SetInteger("Weapon", 0); //to actually trigger the damn thing like i swear to fucking god
             timeBtwAttacks -= Time.deltaTime;
         }

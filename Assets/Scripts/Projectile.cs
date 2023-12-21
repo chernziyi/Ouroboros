@@ -7,19 +7,21 @@ public class Projectile : MonoBehaviour
     public float lifetime;
     public float speed;
 
-    public GameObject weaponUser;
+    private GameObject weaponUser;
     public float damage;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(weaponUser.GetComponent<PlayerAttack>().weaponUsed == 1)
+        weaponUser = GameObject.FindGameObjectWithTag("Player");
+
+        if (weaponUser.GetComponent<PlayerAttack>().weaponUsed == 1)
         {
-            damage = weaponUser.GetComponent<WeaponDatabase>().damage[weaponUser.GetComponent<PlayerAttack>().Weapon1];
+            damage = weaponUser.GetComponent<WeaponDatabase>().damage[weaponUser.GetComponent<PlayerAttack>().Weapon1 - 1];
         }
-        else
+        else if (weaponUser.GetComponent<PlayerAttack>().weaponUsed == 2)
         {
-            damage = weaponUser.GetComponent<WeaponDatabase>().damage[weaponUser.GetComponent<PlayerAttack>().Weapon2];
+            damage = weaponUser.GetComponent<WeaponDatabase>().damage[weaponUser.GetComponent<PlayerAttack>().Weapon2 - 1];
         }
         Invoke("SelfDestruct", lifetime);
     }
@@ -32,6 +34,12 @@ public class Projectile : MonoBehaviour
 
     void SelfDestruct()
     {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        other.GetComponent<Enemy>().TakeDamage(damage);
         Destroy(gameObject);
     }
 }

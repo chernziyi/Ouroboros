@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1439
     height: 741
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 274.5
     height: 417.5
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -215,8 +215,8 @@ MonoBehaviour:
     y: 0
     width: 885
     height: 417.5
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 14}
@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 279.5
     height: 691
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -349,9 +349,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3c610000
-      m_LastClickedID: 24892
-      m_ExpandedIDs: 1afbffff1c6100003c610000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: dcfaffff3a6100005a610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1190,7 +1190,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 24860
+  m_LastSelectedObjectID: -3680
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
