@@ -638,6 +638,8 @@ MonoBehaviour:
   weaponUsed: 0
   Weapon1: 0
   Weapon2: 0
+  comboMeter: 0
+  comboDuration: 2
   weaponDatabase: {fileID: 535972198}
   shotPoint: {fileID: 1427836130}
   weapon: {fileID: 987489197}
@@ -673,7 +675,6 @@ MonoBehaviour:
   - fist
   - blaster
   - sword
-  ranged: 000100
   attackSpeed:
   - 0.2
   - 0.4
@@ -686,6 +687,11 @@ MonoBehaviour:
   - 0.1
   - 0
   - 0.15
+  ranged: 000100
+  combo:
+  - 2
+  - 1
+  - 1
 --- !u!1 &987489196
 GameObject:
   m_ObjectHideFlags: 0

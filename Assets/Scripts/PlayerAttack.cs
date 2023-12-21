@@ -21,6 +21,10 @@ public class PlayerAttack : MonoBehaviour
 
     private bool attacking = false;
     float atkTime;
+    [SerializeField] private int comboMeter;
+    public float comboDuration;
+    float ctimer;
+    bool combo;
 
     public WeaponDatabase weaponDatabase;
 
@@ -30,8 +34,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        Weapon1 = 1; // we cannot use 0 due to animation stuff.
+        Weapon1 = 3; // we cannot use 0 due to animation stuff.
         Weapon2 = 2;
+        combo = true;
     }
 
     private void Update()
@@ -48,10 +53,25 @@ public class PlayerAttack : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                if(weaponUsed == 2)
+                {
+                    comboMeter = 0;
+                }
+
                 anim.SetInteger("Weapon", Weapon1);
                 timeBtwAttacks = attackSpeed1;
                 atkTime = atkDuration1;
                 weaponUsed = 1;
+
+                if (comboMeter < weaponDatabase.combo[Weapon1 - 1])
+                {
+                    comboMeter += 1;
+                }else
+                {
+                    comboMeter = 1;
+                }
+                ctimer = comboDuration;
+                anim.SetInteger("Combo", comboMeter);
 
                 if (weaponDatabase.ranged[Weapon1 - 1] == true)
                 {
@@ -61,10 +81,26 @@ public class PlayerAttack : MonoBehaviour
 
             } else if (Input.GetMouseButtonDown(1))
             {
+                if (weaponUsed == 1)
+                {
+                    comboMeter = 0;
+                }
+
                 anim.SetInteger("Weapon", Weapon2);
                 timeBtwAttacks = attackSpeed2;
                 atkTime = atkDuration2;
                 weaponUsed = 2;
+
+                if (comboMeter < weaponDatabase.combo[Weapon2 - 1])
+                {
+                    comboMeter += 1;
+                }
+                else
+                {
+                    comboMeter = 1;
+                }
+                ctimer = comboDuration;
+                anim.SetInteger("Combo", comboMeter);
 
                 if (weaponDatabase.ranged[Weapon2 - 1] == true)
                 {
@@ -72,10 +108,11 @@ public class PlayerAttack : MonoBehaviour
                     Debug.Log("Fire");
                 }
             }
-        } else
+        }else
         {
 
             anim.SetInteger("Weapon", 0); //to actually trigger the damn thing like i swear to fucking god
+            anim.SetInteger("Combo", 0);
             timeBtwAttacks -= Time.deltaTime;
         }
 
@@ -88,6 +125,20 @@ public class PlayerAttack : MonoBehaviour
         {
             attacking = false;
         }
+
+        if (ctimer > 0)
+        {
+            combo = true;
+            ctimer -= Time.deltaTime;
+        }
+        else
+        {
+            combo = false;
+            comboMeter = 0;
+            anim.SetInteger("Combo", comboMeter);
+        }
+
+        anim.SetBool("InCombo", combo);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -108,7 +159,4 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
-
 }
-
-    

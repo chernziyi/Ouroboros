@@ -37,10 +37,11 @@ public class UpgradeRandomizer : MonoBehaviour
     public void RandomUpgrade(int slot)
     {
         int rarity = Random.Range(1, cWeight + ucWeight + rWeight + lWeight + 1);
-
+        
         if (rarity <= cWeight)
         {
             Debug.Log("Common");
+
             if (slot == 1)
             {
                 currentUpgrade1 = cUpgrades[Random.Range(0, cUpgrades.Length)];
