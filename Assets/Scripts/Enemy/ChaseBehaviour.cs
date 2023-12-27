@@ -9,6 +9,8 @@ public class ChaseBehaviour : StateMachineBehaviour
 
     public float speed;
     public float hostileRadius;
+    public string next;
+
     Vector3 offset = Vector3.zero;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -16,7 +18,7 @@ public class ChaseBehaviour : StateMachineBehaviour
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         offset.x = Random.Range(hostileRadius * -1, hostileRadius);
-        offset.x = (float)(offset.x * 0.7);
+        offset.x = (float)(offset.x * 0.7); //to cirleize
         offset.y = Random.Range(hostileRadius * -1, hostileRadius);
         offset.y = (float)(offset.y * 0.7);
     }
@@ -30,7 +32,15 @@ public class ChaseBehaviour : StateMachineBehaviour
         }else
         {
             animator.SetBool("Chase",false);
-            animator.SetBool("Rush",true);
+
+            if (next == "Rush")
+            {
+                animator.SetBool("Rush", true);
+            }
+            else if (next == "Shoot")
+            {
+                animator.SetBool("Shoot", true);
+            }
         }
     }
 

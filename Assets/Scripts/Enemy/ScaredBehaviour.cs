@@ -1,62 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class RushBehaviour : StateMachineBehaviour
+public class ScaredBehaviour : StateMachineBehaviour
 {
-    
-    public float windup;
-    public float duration;
-    public float delay;
+    private Transform playerPos;
+
+    public float scaredDelay;
+    private float sTimer;
+    public float braveRadius;
     public float speed;
     public string next;
-    private float wTimer;
-    private float dTimer;
-    Vector2 playerPos;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        playerPos.x = GameObject.FindGameObjectWithTag("Player").transform.position.x;
-        playerPos.y = GameObject.FindGameObjectWithTag("Player").transform.position.y;
-
-        wTimer = windup + Random.Range(0, delay);
-        dTimer = duration;
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        sTimer = scaredDelay;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector2 pos;
-        pos.x = animator.transform.position.x;
-        pos.y = animator.transform.position.y;
-
-        if(wTimer <= 0)
+        if(sTimer <= 0)
         {
-            if(dTimer <= 0 || pos == playerPos)
+            if (Vector2.Distance(animator.transform.position, playerPos.position) < braveRadius)
             {
-                animator.SetBool("Rush", false);
+                animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPos.position, -speed * Time.deltaTime);
+            }
+            else
+            {
+                animator.SetBool("Scared", false);
 
-                if (next == "Chase")
+                if (next == "Rush")
                 {
-                    animator.SetBool("Chase", true);
+                    animator.SetBool("Rush", true);
                 }
                 else if (next == "Shoot")
                 {
                     animator.SetBool("Shoot", true);
                 }
-            }
-            else
-            {
-                animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPos, speed * Time.deltaTime);
-                dTimer -= Time.deltaTime;   
+                else if (next == "Chase")
+                {
+                    animator.SetBool("Chase", true);
+                }
             }
         }
         else
         {
-            wTimer -= Time.deltaTime;
+            sTimer -= Time.deltaTime;
         }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+using static UnityEditor.PlayerSettings;
 
-public class RushBehaviour : StateMachineBehaviour
+public class ShootBehaviour : StateMachineBehaviour
 {
-    
+    public GameObject projectile;
     public float windup;
-    public float duration;
-    public float delay;
-    public float speed;
-    public string next;
     private float wTimer;
-    private float dTimer;
+    public float delay;
     Vector2 playerPos;
+
+    public string next;
+    public bool scaredy;
+    public float scaredRadius;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -22,39 +22,37 @@ public class RushBehaviour : StateMachineBehaviour
         playerPos.y = GameObject.FindGameObjectWithTag("Player").transform.position.y;
 
         wTimer = windup + Random.Range(0, delay);
-        dTimer = duration;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector2 pos;
-        pos.x = animator.transform.position.x;
-        pos.y = animator.transform.position.y;
-
-        if(wTimer <= 0)
+        if (wTimer <= 0)
         {
-            if(dTimer <= 0 || pos == playerPos)
-            {
-                animator.SetBool("Rush", false);
+            Instantiate(projectile, animator.transform.position, Quaternion.identity);
 
-                if (next == "Chase")
-                {
-                    animator.SetBool("Chase", true);
-                }
-                else if (next == "Shoot")
-                {
-                    animator.SetBool("Shoot", true);
-                }
-            }
-            else
+            animator.SetBool("Shoot", false);
+
+            if (next == "Chase")
             {
-                animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPos, speed * Time.deltaTime);
-                dTimer -= Time.deltaTime;   
+                animator.SetBool("Chase", true);
+            }
+            else if (next == "Rush")
+            {
+                animator.SetBool("Rush", true);
             }
         }
         else
         {
+            if (scaredy == true)
+            {
+                if (Vector2.Distance(animator.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < scaredRadius)
+                {
+                    animator.SetBool("Shoot", false);
+                    animator.SetBool("Scared", true);
+                }
+            }
+
             wTimer -= Time.deltaTime;
         }
     }

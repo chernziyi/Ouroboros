@@ -7,6 +7,7 @@ public class EnemyAttacking : MonoBehaviour
     [SerializeField] private bool attacking = false;
     [SerializeField] private Animator anim;
     public float damage;
+    public bool ranged;
 
 
     // Start is called before the first frame update
@@ -18,7 +19,11 @@ public class EnemyAttacking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attacking = anim.GetBool("Rush");
+        if (ranged == false)
+        {
+            attacking = anim.GetBool("Rush");
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

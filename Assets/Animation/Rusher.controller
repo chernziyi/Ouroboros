@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   hostileRadius: 4
-  offsetRadius: 3
+  next: Rush
 --- !u!1101 &-3950738410190345747
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -108,9 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78140b0d96ffb407a947270f12504003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windup: 0.5
-  duration: 1
+  windup: 1
+  duration: 1.5
+  delay: 0.2
   speed: 25
+  next: Chase
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
