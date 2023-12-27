@@ -17,11 +17,11 @@ public class Projectile : MonoBehaviour
 
         if (weaponUser.GetComponent<PlayerAttack>().weaponUsed == 1)
         {
-            damage = weaponUser.GetComponent<WeaponDatabase>().damage[weaponUser.GetComponent<PlayerAttack>().Weapon1 - 1];
+            damage = weaponUser.GetComponent<WeaponDatabase>().DPS[weaponUser.GetComponent<PlayerAttack>().Weapon1 - 1];
         }
         else if (weaponUser.GetComponent<PlayerAttack>().weaponUsed == 2)
         {
-            damage = weaponUser.GetComponent<WeaponDatabase>().damage[weaponUser.GetComponent<PlayerAttack>().Weapon2 - 1];
+            damage = weaponUser.GetComponent<WeaponDatabase>().DPS[weaponUser.GetComponent<PlayerAttack>().Weapon2 - 1];
         }
         Invoke("SelfDestruct", lifetime);
     }

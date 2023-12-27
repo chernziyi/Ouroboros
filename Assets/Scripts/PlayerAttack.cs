@@ -10,14 +10,10 @@ public class PlayerAttack : MonoBehaviour
     [HideInInspector] public float weaponUsed; // 1 or 2
 
     public int Weapon1;
-    private float attackSpeed1;
-    private float weaponDamage1;
-    private float atkDuration1;
-
     public int Weapon2;
-    private float attackSpeed2;
-    private float weaponDamage2;
-    private float atkDuration2;
+    private float attackSpeed;
+    private float DPS;
+    private float atkDuration;
 
     private bool attacking = false;
     float atkTime;
@@ -41,35 +37,41 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        attackSpeed1 = weaponDatabase.attackSpeed[Weapon1 - 1];
-        attackSpeed2 = weaponDatabase.attackSpeed[Weapon2 - 1];
-        weaponDamage1 = weaponDatabase.damage[Weapon1 - 1];
-        weaponDamage2 = weaponDatabase.damage[Weapon2 - 1];
-        atkDuration1 = weaponDatabase.attackDuration[Weapon1 - 1];
-        atkDuration2 = weaponDatabase.attackDuration[Weapon2 - 1];
-
         if (timeBtwAttacks <= 0)
         {
 
             if (Input.GetMouseButtonDown(0))
             {
-                if(weaponUsed == 2)
+                if (weaponUsed == 2)
                 {
                     comboMeter = 0;
                 }
 
-                anim.SetInteger("Weapon", Weapon1);
-                timeBtwAttacks = attackSpeed1;
-                atkTime = atkDuration1;
                 weaponUsed = 1;
 
                 if (comboMeter < weaponDatabase.combo[Weapon1 - 1])
                 {
                     comboMeter += 1;
-                }else
+                }
+                else
                 {
                     comboMeter = 1;
                 }
+
+                DPS = weaponDatabase.DPS[Weapon1 - 1];
+                if (comboMeter == 1)
+                {
+                    attackSpeed = weaponDatabase.c1AttackSpeed[Weapon1 - 1];
+                    atkDuration = weaponDatabase.c1AttackDuration[Weapon1 - 1];
+                }else if (comboMeter == 2)
+                {
+                    attackSpeed = weaponDatabase.c2AttackSpeed[Weapon1 - 1];
+                    atkDuration = weaponDatabase.c2AttackDuration[Weapon1 - 1];
+                }
+
+                anim.SetInteger("Weapon", Weapon1);
+                timeBtwAttacks = attackSpeed;
+                atkTime = atkDuration;
                 ctimer = comboDuration;
                 anim.SetInteger("Combo", comboMeter);
 
@@ -79,7 +81,8 @@ public class PlayerAttack : MonoBehaviour
                     Debug.Log("Fire");
                 }
 
-            } else if (Input.GetMouseButtonDown(1))
+            }
+            else if (Input.GetMouseButtonDown(1))
             {
                 if (weaponUsed == 1)
                 {
@@ -87,8 +90,6 @@ public class PlayerAttack : MonoBehaviour
                 }
 
                 anim.SetInteger("Weapon", Weapon2);
-                timeBtwAttacks = attackSpeed2;
-                atkTime = atkDuration2;
                 weaponUsed = 2;
 
                 if (comboMeter < weaponDatabase.combo[Weapon2 - 1])
@@ -99,6 +100,22 @@ public class PlayerAttack : MonoBehaviour
                 {
                     comboMeter = 1;
                 }
+
+                DPS = weaponDatabase.DPS[Weapon2 - 1];
+                if (comboMeter == 1)
+                {
+                    attackSpeed = weaponDatabase.c1AttackSpeed[Weapon2 - 1];
+                    atkDuration = weaponDatabase.c1AttackDuration[Weapon2 - 1];
+                }
+                else if (comboMeter == 2)
+                {
+                    attackSpeed = weaponDatabase.c2AttackSpeed[Weapon2 - 1];
+                    atkDuration = weaponDatabase.c2AttackDuration[Weapon2 - 1];
+                }
+
+                anim.SetInteger("Weapon", Weapon2);
+                timeBtwAttacks = attackSpeed;
+                atkTime = atkDuration;
                 ctimer = comboDuration;
                 anim.SetInteger("Combo", comboMeter);
 
@@ -108,7 +125,8 @@ public class PlayerAttack : MonoBehaviour
                     Debug.Log("Fire");
                 }
             }
-        }else
+        }
+        else
         {
 
             anim.SetInteger("Weapon", 0); //to actually trigger the damn thing like i swear to fucking god
@@ -116,7 +134,7 @@ public class PlayerAttack : MonoBehaviour
             timeBtwAttacks -= Time.deltaTime;
         }
 
-        if(atkTime > 0)
+        if (atkTime > 0)
         {
             attacking = true;
             atkTime -= Time.deltaTime;
@@ -143,19 +161,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
-            if(attacking == true)
+            if (attacking == true)
             {
-                if (weaponUsed == 1)
-                {
-                    other.GetComponent<Enemy>().TakeDamage(weaponDamage1);
-                }
-                else if (weaponUsed == 2)
-                {
-                    other.GetComponent<Enemy>().TakeDamage(weaponDamage2);
-                }
-                Debug.Log("Strike!");
+                other.GetComponent<Enemy>().TakeDamage(Mathf.Round(DPS * atkDuration));
             }
         }
     }

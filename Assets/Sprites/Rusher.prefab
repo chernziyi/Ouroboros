@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: c73f6b23ff07e44c7ac0aaf7c1dca4a9, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: b8d5a865fc7944b4c8000c8a37bbd757, type: 3}
   m_Color: {r: 0.2488875, g: 0.4433962, b: 0.27494505, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
-  soulDrop: 1
+  soulDrop: 5
   soul: {fileID: 8779972021732132531, guid: 1130ea254d820496aa5cff05195131e0, type: 3}
 --- !u!114 &2170980922890510688
 MonoBehaviour:
