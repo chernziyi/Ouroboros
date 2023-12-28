@@ -18,6 +18,8 @@ public class UpgradeRandomizer : MonoBehaviour
     public string[] eUpgrades;
     public string[] lUpgrades;
 
+    public GameObject upgradeMenu;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -32,6 +34,8 @@ public class UpgradeRandomizer : MonoBehaviour
         {
             RandomUpgrade(i + 1);
         }
+
+        upgradeMenu.GetComponent<UpgradeMenu>().UpgradeMenuEnter();
     }
 
     public void RandomUpgrade(int slot)
@@ -135,5 +139,6 @@ public class UpgradeRandomizer : MonoBehaviour
                 }
             }
         }
+
     }
 }

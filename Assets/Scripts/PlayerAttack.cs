@@ -37,101 +37,105 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (timeBtwAttacks <= 0)
+        if (PauseMenu.gameIsPaused == false)
         {
-
-            if (Input.GetMouseButtonDown(0))
+            if (timeBtwAttacks <= 0)
             {
-                if (weaponUsed == 2)
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    comboMeter = 0;
+                    if (weaponUsed == 2)
+                    {
+                        comboMeter = 0;
+                    }
+
+                    weaponUsed = 1;
+
+                    if (comboMeter < weaponDatabase.combo[Weapon1 - 1])
+                    {
+                        comboMeter += 1;
+                    }
+                    else
+                    {
+                        comboMeter = 1;
+                    }
+
+                    DPS = weaponDatabase.DPS[Weapon1 - 1];
+                    if (comboMeter == 1)
+                    {
+                        attackSpeed = weaponDatabase.c1AttackSpeed[Weapon1 - 1];
+                        atkDuration = weaponDatabase.c1AttackDuration[Weapon1 - 1];
+                    }
+                    else if (comboMeter == 2)
+                    {
+                        attackSpeed = weaponDatabase.c2AttackSpeed[Weapon1 - 1];
+                        atkDuration = weaponDatabase.c2AttackDuration[Weapon1 - 1];
+                    }
+
+                    anim.SetInteger("Weapon", Weapon1);
+                    timeBtwAttacks = attackSpeed;
+                    atkTime = atkDuration;
+                    ctimer = comboDuration;
+                    anim.SetInteger("Combo", comboMeter);
+
+                    if (weaponDatabase.ranged[Weapon1 - 1] == true)
+                    {
+                        Instantiate(projectile, shotPoint.position, weapon.rotation);
+                        Debug.Log("Fire");
+                    }
+
                 }
-
-                weaponUsed = 1;
-
-                if (comboMeter < weaponDatabase.combo[Weapon1 - 1])
+                else if (Input.GetMouseButtonDown(1))
                 {
-                    comboMeter += 1;
+                    if (weaponUsed == 1)
+                    {
+                        comboMeter = 0;
+                    }
+
+                    anim.SetInteger("Weapon", Weapon2);
+                    weaponUsed = 2;
+
+                    if (comboMeter < weaponDatabase.combo[Weapon2 - 1])
+                    {
+                        comboMeter += 1;
+                    }
+                    else
+                    {
+                        comboMeter = 1;
+                    }
+
+                    DPS = weaponDatabase.DPS[Weapon2 - 1];
+                    if (comboMeter == 1)
+                    {
+                        attackSpeed = weaponDatabase.c1AttackSpeed[Weapon2 - 1];
+                        atkDuration = weaponDatabase.c1AttackDuration[Weapon2 - 1];
+                    }
+                    else if (comboMeter == 2)
+                    {
+                        attackSpeed = weaponDatabase.c2AttackSpeed[Weapon2 - 1];
+                        atkDuration = weaponDatabase.c2AttackDuration[Weapon2 - 1];
+                    }
+
+                    anim.SetInteger("Weapon", Weapon2);
+                    timeBtwAttacks = attackSpeed;
+                    atkTime = atkDuration;
+                    ctimer = comboDuration;
+                    anim.SetInteger("Combo", comboMeter);
+
+                    if (weaponDatabase.ranged[Weapon2 - 1] == true)
+                    {
+                        Instantiate(projectile, shotPoint.position, weapon.rotation);
+                        Debug.Log("Fire");
+                    }
                 }
-                else
-                {
-                    comboMeter = 1;
-                }
-
-                DPS = weaponDatabase.DPS[Weapon1 - 1];
-                if (comboMeter == 1)
-                {
-                    attackSpeed = weaponDatabase.c1AttackSpeed[Weapon1 - 1];
-                    atkDuration = weaponDatabase.c1AttackDuration[Weapon1 - 1];
-                }else if (comboMeter == 2)
-                {
-                    attackSpeed = weaponDatabase.c2AttackSpeed[Weapon1 - 1];
-                    atkDuration = weaponDatabase.c2AttackDuration[Weapon1 - 1];
-                }
-
-                anim.SetInteger("Weapon", Weapon1);
-                timeBtwAttacks = attackSpeed;
-                atkTime = atkDuration;
-                ctimer = comboDuration;
-                anim.SetInteger("Combo", comboMeter);
-
-                if (weaponDatabase.ranged[Weapon1 - 1] == true)
-                {
-                    Instantiate(projectile, shotPoint.position, weapon.rotation);
-                    Debug.Log("Fire");
-                }
-
             }
-            else if (Input.GetMouseButtonDown(1))
+            else
             {
-                if (weaponUsed == 1)
-                {
-                    comboMeter = 0;
-                }
 
-                anim.SetInteger("Weapon", Weapon2);
-                weaponUsed = 2;
-
-                if (comboMeter < weaponDatabase.combo[Weapon2 - 1])
-                {
-                    comboMeter += 1;
-                }
-                else
-                {
-                    comboMeter = 1;
-                }
-
-                DPS = weaponDatabase.DPS[Weapon2 - 1];
-                if (comboMeter == 1)
-                {
-                    attackSpeed = weaponDatabase.c1AttackSpeed[Weapon2 - 1];
-                    atkDuration = weaponDatabase.c1AttackDuration[Weapon2 - 1];
-                }
-                else if (comboMeter == 2)
-                {
-                    attackSpeed = weaponDatabase.c2AttackSpeed[Weapon2 - 1];
-                    atkDuration = weaponDatabase.c2AttackDuration[Weapon2 - 1];
-                }
-
-                anim.SetInteger("Weapon", Weapon2);
-                timeBtwAttacks = attackSpeed;
-                atkTime = atkDuration;
-                ctimer = comboDuration;
-                anim.SetInteger("Combo", comboMeter);
-
-                if (weaponDatabase.ranged[Weapon2 - 1] == true)
-                {
-                    Instantiate(projectile, shotPoint.position, weapon.rotation);
-                    Debug.Log("Fire");
-                }
+                anim.SetInteger("Weapon", 0); //to actually trigger the damn thing like i swear to fucking god
+                anim.SetInteger("Combo", 0);
+                timeBtwAttacks -= Time.deltaTime;
             }
-        }
-        else
-        {
-
-            anim.SetInteger("Weapon", 0); //to actually trigger the damn thing like i swear to fucking god
-            anim.SetInteger("Combo", 0);
-            timeBtwAttacks -= Time.deltaTime;
         }
 
         if (atkTime > 0)
