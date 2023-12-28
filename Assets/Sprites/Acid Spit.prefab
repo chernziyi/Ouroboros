@@ -144,6 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 3
-  speed: 5
+  speed: 4
   damage: 10
-  homing: 1
+  homing: 0

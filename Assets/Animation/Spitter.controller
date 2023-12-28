@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 2123347753746472644, guid: e82a4be6f1d41487fac48684a70d3696, type: 3}
-  windup: 1
+  windup: 2
   delay: 0.2
   next: Chase
   scaredy: 1

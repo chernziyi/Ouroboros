@@ -5,8 +5,8 @@ using UnityEngine;
 public class UpgradeRandomizer : MonoBehaviour
 {
     [SerializeField] private int cWeight;
-    [SerializeField] private int ucWeight;
     [SerializeField] private int rWeight;
+    [SerializeField] private int eWeight;
     [SerializeField] private int lWeight;
 
     public string currentUpgrade1;
@@ -14,8 +14,8 @@ public class UpgradeRandomizer : MonoBehaviour
     public string currentUpgrade3;
 
     public string[] cUpgrades;
-    public string[] ucUpgrades;
     public string[] rUpgrades;
+    public string[] eUpgrades;
     public string[] lUpgrades;
 
     private void Update()
@@ -36,7 +36,7 @@ public class UpgradeRandomizer : MonoBehaviour
 
     public void RandomUpgrade(int slot)
     {
-        int rarity = Random.Range(1, cWeight + ucWeight + rWeight + lWeight + 1);
+        int rarity = Random.Range(1, cWeight + rWeight + eWeight + lWeight + 1);
         
         if (rarity <= cWeight)
         {
@@ -63,31 +63,7 @@ public class UpgradeRandomizer : MonoBehaviour
                 }
             }
         }
-        else if (rarity <= ucWeight + cWeight && rarity > cWeight)
-        {
-            Debug.Log("Uncommon");
-            if (slot == 1)
-            {
-                currentUpgrade1 = ucUpgrades[Random.Range(0, ucUpgrades.Length)];
-            }
-            else if (slot == 2)
-            {
-                currentUpgrade2 = ucUpgrades[Random.Range(0, ucUpgrades.Length)];
-                if (currentUpgrade2 == currentUpgrade1)
-                {
-                    RandomUpgrade(2);
-                }
-            }
-            else if (slot == 3)
-            {
-                currentUpgrade3 = ucUpgrades[Random.Range(0, ucUpgrades.Length)];
-                if ((currentUpgrade3 == currentUpgrade1) || (currentUpgrade3 == currentUpgrade2))
-                {
-                    RandomUpgrade(3);
-                }
-            }
-        }
-        else if (rarity <= ucWeight + cWeight + rWeight && rarity > ucWeight + cWeight)
+        else if (rarity <= rWeight + cWeight && rarity > cWeight)
         {
             Debug.Log("Rare");
             if (slot == 1)
@@ -111,7 +87,31 @@ public class UpgradeRandomizer : MonoBehaviour
                 }
             }
         }
-        else if (rarity <= ucWeight + cWeight + rWeight + lWeight && rarity > ucWeight + cWeight + rWeight)
+        else if (rarity <= rWeight + cWeight + eWeight && rarity > rWeight + cWeight)
+        {
+            Debug.Log("Epic");
+            if (slot == 1)
+            {
+                currentUpgrade1 = eUpgrades[Random.Range(0, eUpgrades.Length)];
+            }
+            else if (slot == 2)
+            {
+                currentUpgrade2 = eUpgrades[Random.Range(0, eUpgrades.Length)];
+                if (currentUpgrade2 == currentUpgrade1)
+                {
+                    RandomUpgrade(2);
+                }
+            }
+            else if (slot == 3)
+            {
+                currentUpgrade3 = eUpgrades[Random.Range(0, eUpgrades.Length)];
+                if ((currentUpgrade3 == currentUpgrade1) || (currentUpgrade3 == currentUpgrade2))
+                {
+                    RandomUpgrade(3);
+                }
+            }
+        }
+        else if (rarity <= rWeight + cWeight + eWeight + lWeight && rarity > rWeight + cWeight + eWeight)
         {
             Debug.Log("Legendary");
             if (slot == 1)

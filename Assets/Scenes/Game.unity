@@ -298,18 +298,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cWeight: 15
-  ucWeight: 10
-  rWeight: 4
+  rWeight: 10
+  eWeight: 4
   lWeight: 1
   currentUpgrade1: 
   currentUpgrade2: 
   currentUpgrade3: 
   cUpgrades:
   - c
-  ucUpgrades:
-  - uc
   rUpgrades:
   - r
+  eUpgrades: []
   lUpgrades:
   - l
 --- !u!1 &519420028
