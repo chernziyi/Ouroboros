@@ -9,23 +9,29 @@ public class UpgradeRandomizer : MonoBehaviour
     [SerializeField] private int eWeight;
     [SerializeField] private int lWeight;
 
-    public string currentUpgrade1;
-    public string currentUpgrade2;
-    public string currentUpgrade3;
+    public Upgrade currentUpgrade1;
+    public Upgrade currentUpgrade2;
+    public Upgrade currentUpgrade3;
 
-    public string[] cUpgrades;
-    public string[] rUpgrades;
-    public string[] eUpgrades;
-    public string[] lUpgrades;
+    public Upgrade[] cUpgrades;
+    public Upgrade[] rUpgrades;
+    public Upgrade[] eUpgrades;
+    public Upgrade[] lUpgrades;
 
     public GameObject upgradeMenu;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.U))
         {
-            UpgradeMenu(3);
+            LevelUp();
         }
+    }
+
+    public void LevelUp()
+    {
+        UpgradeMenu(3);
+        upgradeMenu.GetComponent<UpgradeMenu>().UpgradeMenuEnter();
     }
 
     public void UpgradeMenu(int slots)
@@ -34,8 +40,6 @@ public class UpgradeRandomizer : MonoBehaviour
         {
             RandomUpgrade(i + 1);
         }
-
-        upgradeMenu.GetComponent<UpgradeMenu>().UpgradeMenuEnter();
     }
 
     public void RandomUpgrade(int slot)

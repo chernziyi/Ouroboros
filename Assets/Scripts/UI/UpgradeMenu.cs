@@ -9,9 +9,9 @@ public class UpgradeMenu : MonoBehaviour
     public GameObject upgradeMenuUI;
     public GameObject upgradeManager;
 
-    public GameObject u1Button;
-    public GameObject u2Button;
-    public GameObject u3Button;
+    public GameObject u1;
+    public GameObject u2;
+    public GameObject u3;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +22,6 @@ public class UpgradeMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            UpgradeMenuEnter();
-        }
     }
 
     public void UpgradeMenuEnter()
@@ -34,5 +30,8 @@ public class UpgradeMenu : MonoBehaviour
         Time.timeScale = 0f;
         upgradeMenuUI.SetActive(true);
 
+        u1.GetComponent<UpgradeDisplay>().NewUpgrade();
+        u2.GetComponent<UpgradeDisplay>().NewUpgrade();
+        u3.GetComponent<UpgradeDisplay>().NewUpgrade();
     }
 }
