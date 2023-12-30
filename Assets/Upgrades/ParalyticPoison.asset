@@ -18,6 +18,5 @@ MonoBehaviour:
   lvl1Description: Stunned enemies receive poison damage.
   lvl2Description: Increased Stun duration.
   lvl3Description: Enemies stun for a very short time upon taking poison damage
-  lvl4Description: When a poisoned enemy reaches a certain threshold, it gets stunned
-    PERMANENTLY
+  lvl4Description: Enemies are stunned until poison is done.
   artwork: {fileID: 0}

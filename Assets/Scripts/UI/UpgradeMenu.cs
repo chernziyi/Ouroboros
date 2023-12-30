@@ -34,4 +34,11 @@ public class UpgradeMenu : MonoBehaviour
         u2.GetComponent<UpgradeDisplay>().NewUpgrade();
         u3.GetComponent<UpgradeDisplay>().NewUpgrade();
     }
+
+    public void UpgradeMenuExit()
+    {
+        upgradeTime = false;
+        Time.timeScale = 1f;
+        upgradeMenuUI.SetActive(false);
+    }
 }

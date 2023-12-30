@@ -8,6 +8,7 @@ public class UpgradeDisplay : MonoBehaviour
 {
     public Upgrade upgrade;
     public GameObject upgradeManager;
+    public GameObject upgradeMenu;
 
     public TextMeshProUGUI upgradeName;
     public TextMeshProUGUI description;
@@ -20,6 +21,12 @@ public class UpgradeDisplay : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpgradeSelect()
+    {
+        upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] += 1;
+        upgradeMenu.GetComponent<UpgradeMenu>().UpgradeMenuExit();
     }
 
     public void NewUpgrade()

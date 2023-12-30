@@ -37,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (PauseMenu.gameIsPaused == false)
+        if (Time.timeScale > 0f)
         {
             if (timeBtwAttacks <= 0)
             {

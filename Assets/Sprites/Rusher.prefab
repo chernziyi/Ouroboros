@@ -195,6 +195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  poisonStack: 0
+  poisonDPS: 5
+  poisonDuration: 2
   soulDrop: 5
   soul: {fileID: 8779972021732132531, guid: 1130ea254d820496aa5cff05195131e0, type: 3}
 --- !u!114 &2170980922890510688

@@ -53,11 +53,15 @@ public class UpgradeRandomizer : MonoBehaviour
             if (slot == 1)
             {
                 currentUpgrade1 = cUpgrades[Random.Range(0, cUpgrades.Length)];
+                if (GetComponent<UpgradeDatabase>().level[currentUpgrade1.ID] >= 4)
+                {
+                    RandomUpgrade(1);
+                }
             }
             else if (slot == 2)
             {
                 currentUpgrade2 = cUpgrades[Random.Range(0, cUpgrades.Length)];
-                if (currentUpgrade2 == currentUpgrade1)
+                if (currentUpgrade2 == currentUpgrade1 || GetComponent<UpgradeDatabase>().level[currentUpgrade2.ID] >= 4)
                 {
                     RandomUpgrade(2);
                 }
@@ -65,11 +69,12 @@ public class UpgradeRandomizer : MonoBehaviour
             else if (slot == 3)
             {
                 currentUpgrade3 = cUpgrades[Random.Range(0, cUpgrades.Length)];
-                if ((currentUpgrade3 == currentUpgrade1) || (currentUpgrade3 == currentUpgrade2))
+                if (currentUpgrade3 == currentUpgrade1 || currentUpgrade3 == currentUpgrade2 || GetComponent<UpgradeDatabase>().level[currentUpgrade3.ID] >= 4)
                 {
                     RandomUpgrade(3);
                 }
             }
+
         }
         else if (rarity <= rWeight + cWeight && rarity > cWeight)
         {

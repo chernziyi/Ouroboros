@@ -5,9 +5,50 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float health;
+    [SerializeField] private float poisonStack;
+    [SerializeField] private float poisonDPS;
+    [SerializeField] private float poisonDuration;
+    private float pTimer;
+    private float pCount;
 
     public float soulDrop;
     [SerializeField] GameObject soul;
+
+    private void Start()
+    {
+        pCount = poisonDuration;
+    }
+
+    private void Update()
+    {
+        if (poisonStack > 0)
+        {
+            if(pCount <= 0)
+            {
+                poisonStack -= 1;
+                pCount = poisonDuration;
+            }
+            else
+            {
+                if (pTimer <= 0)
+                {
+                    pCount -= 1;
+                    pTimer = 1;
+                    TakeDamage(poisonDPS);
+                }
+                else
+                {
+                    pTimer -= Time.deltaTime;
+                }
+            }
+        }
+    }
+
+    public void TakePoison(float poisonStackInflicted)
+    {
+        poisonStack = poisonStackInflicted;
+        pCount = poisonDuration;
+    }
 
     public void TakeDamage(float damage)
     {
