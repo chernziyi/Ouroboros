@@ -38,7 +38,20 @@ public class UpgradeDisplay : MonoBehaviour
         }
 
         upgradeName.text = upgrade.upgradeName;
-        description.text = upgrade.description;
         artwork.sprite = upgrade.artwork;
+
+        if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] == 0)
+        {
+            description.text = upgrade.lvl1Description;
+        }else if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] == 1)
+        {
+            description.text = upgrade.lvl2Description;
+        }else if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] == 2)
+        {
+            description.text = upgrade.lvl3Description;
+        }else if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] == 3)
+        {
+            description.text = upgrade.lvl4Description;
+        }
     }
 }

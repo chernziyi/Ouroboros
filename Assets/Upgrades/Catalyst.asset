@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bebbe8c865ae84dee8e2f9f2fc82ba0b, type: 3}
-  m_Name: Empty
+  m_Name: Catalyst
   m_EditorClassIdentifier: 
-  upgradeName: Nothing Here
-  description: You messed up
-  rarity: 
-  level: 0
+  upgradeName: Catalyst
+  rarity: Epic
+  ID: 7
+  lvl1Description: Doubles Poison damage dealt
+  lvl2Description: Triple.
+  lvl3Description: Quadruple.
+  lvl4Description: OCTUPLE!
   artwork: {fileID: 0}
-  effect: 

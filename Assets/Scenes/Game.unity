@@ -472,6 +472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264567740}
   - component: {fileID: 264567741}
+  - component: {fileID: 264567742}
   m_Layer: 0
   m_Name: UpgradeManager
   m_TagString: Untagged
@@ -515,14 +516,42 @@ MonoBehaviour:
   currentUpgrade2: {fileID: 0}
   currentUpgrade3: {fileID: 0}
   cUpgrades:
-  - {fileID: 11400000, guid: 721ac49b0485a4ef2b2bf76557ec999d, type: 2}
+  - {fileID: 11400000, guid: 7712a77d89c8d413692aeda757b13114, type: 2}
+  - {fileID: 11400000, guid: 37d195794fc0340df879551b99205022, type: 2}
+  - {fileID: 11400000, guid: a23e24549fcec44eda9358fc19a70ae5, type: 2}
   rUpgrades:
-  - {fileID: 11400000, guid: 9db3581857d2c4f588ee9d4204f0caf8, type: 2}
+  - {fileID: 11400000, guid: 782ea7dac6d9c4ad69bed406568de1e0, type: 2}
+  - {fileID: 11400000, guid: dffe6da0c094d42dcaff9bcea4923e3f, type: 2}
+  - {fileID: 11400000, guid: d2b12f4c0d7234a64aecd4e62178b55a, type: 2}
   eUpgrades:
-  - {fileID: 11400000, guid: b505faaeaae344e8981748e9a811db3e, type: 2}
+  - {fileID: 11400000, guid: 93c39a67944e248d1bfd658e56ef8b43, type: 2}
+  - {fileID: 11400000, guid: f30af96b0b0984de1af70dc618cffa03, type: 2}
   lUpgrades:
-  - {fileID: 11400000, guid: 4f8ebd82557924476b2661e4245b0442, type: 2}
+  - {fileID: 11400000, guid: 659730ee8a4604521bad8ac7dec6560e, type: 2}
   upgradeMenu: {fileID: 1330899761}
+--- !u!114 &264567742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264567739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19f2f8176f0304b088f07710305e0016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Upgrade:
+  - {fileID: 11400000, guid: 7712a77d89c8d413692aeda757b13114, type: 2}
+  - {fileID: 11400000, guid: 37d195794fc0340df879551b99205022, type: 2}
+  - {fileID: 11400000, guid: a23e24549fcec44eda9358fc19a70ae5, type: 2}
+  - {fileID: 11400000, guid: 782ea7dac6d9c4ad69bed406568de1e0, type: 2}
+  - {fileID: 11400000, guid: dffe6da0c094d42dcaff9bcea4923e3f, type: 2}
+  - {fileID: 11400000, guid: d2b12f4c0d7234a64aecd4e62178b55a, type: 2}
+  - {fileID: 11400000, guid: 93c39a67944e248d1bfd658e56ef8b43, type: 2}
+  - {fileID: 11400000, guid: f30af96b0b0984de1af70dc618cffa03, type: 2}
+  - {fileID: 11400000, guid: 659730ee8a4604521bad8ac7dec6560e, type: 2}
+  level: 000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &282888991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,7 +1831,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 790.9475, w: 0}
+  m_margin: {x: 9.360291, y: 0, z: 842.4293, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2033,7 +2062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 135, y: -2}
+  m_AnchoredPosition: {x: 135, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043959775
@@ -2121,7 +2150,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 790.9475, w: 0}
+  m_margin: {x: 9.360291, y: 0, z: 844.7693, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2414,7 +2443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1257814261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3270,7 +3299,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 790.9475, w: 0}
+  m_margin: {x: 9.360291, y: 0, z: 847.1095, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

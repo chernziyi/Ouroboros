@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bebbe8c865ae84dee8e2f9f2fc82ba0b, type: 3}
-  m_Name: Momentum1
+  m_Name: FastActing
   m_EditorClassIdentifier: 
-  upgradeName: Momentum
-  description: Increase your attack speed for each consecutive hit
-  rarity: Common
-  level: 0
+  upgradeName: Fast -Acting
+  rarity: Legendary
+  ID: 8
+  lvl1Description: Poisoned enemies instantly lose all health that they would receive.
+  lvl2Description: Extra damage.
+  lvl3Description: The poison will still stay.
+  lvl4Description: The enemy will receive maximum stacks of poison whenever they
+    are poisoned.
   artwork: {fileID: 0}
-  effect: 

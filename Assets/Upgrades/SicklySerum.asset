@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bebbe8c865ae84dee8e2f9f2fc82ba0b, type: 3}
-  m_Name: SpecializedHunter1
+  m_Name: SicklySerum
   m_EditorClassIdentifier: 
-  upgradeName: Specialized Hunter
-  description: Increase your damage towards a monster for each time you killed its
-    species
-  rarity: Legendart
-  level: 1
+  upgradeName: Sickly Serum
+  rarity: Rare
+  ID: 3
+  lvl1Description: Poisoned enemies will be slowed down and inflict less damage.
+  lvl2Description: Increase the effect.
+  lvl3Description: Enemies receive stun upon being poisoned for the first time.
+  lvl4Description: The effects stack with each stack of poison an enemy has.
   artwork: {fileID: 0}
-  effect: 

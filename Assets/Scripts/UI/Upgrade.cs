@@ -6,11 +6,13 @@ using UnityEngine;
 public class Upgrade : ScriptableObject
 {
     public string upgradeName;
-    public string description;
     public string rarity;
-    public int level;
+    public int ID;
+
+    public string lvl1Description;
+    public string lvl2Description;
+    public string lvl3Description;
+    public string lvl4Description;
 
     public Sprite artwork;
-
-    public string effect;
 }

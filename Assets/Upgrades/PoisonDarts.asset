@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bebbe8c865ae84dee8e2f9f2fc82ba0b, type: 3}
-  m_Name: PoisonThreshold1
+  m_Name: PoisonDarts
   m_EditorClassIdentifier: 
-  upgradeName: Poison Threshold
-  description: Enemies Die upon reaching a certain poison limit
-  rarity: Epic
-  level: 1
+  upgradeName: Poison Darts
+  rarity: Common
+  ID: 2
+  lvl1Description: Fire a poisoned dart every 2 seconds.
+  lvl2Description: Speed up dart firing.
+  lvl3Description: Marks enemies hit.
+  lvl4Description: Shots explode into a toxic cloud.
   artwork: {fileID: 0}
-  effect: 
