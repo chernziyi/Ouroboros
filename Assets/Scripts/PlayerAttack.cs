@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     float ctimer;
     bool combo;
 
+    public GameObject upgradeManager;
     public WeaponDatabase weaponDatabase;
 
     [SerializeField] private Transform shotPoint;
@@ -170,6 +171,14 @@ public class PlayerAttack : MonoBehaviour
             if (attacking == true)
             {
                 other.GetComponent<Enemy>().TakeDamage(Mathf.Round(DPS * atkDuration));
+
+                if (upgradeManager.GetComponent<UpgradeDatabase>().level[0] >= 3)
+                {
+                    other.GetComponent<Enemy>().TakePoison(2);
+                }else if (upgradeManager.GetComponent<UpgradeDatabase>().level[0] >= 1)
+                {
+                    other.GetComponent<Enemy>().TakePoison(1);
+                }
             }
         }
     }

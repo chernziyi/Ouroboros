@@ -7,6 +7,7 @@ using TMPro;
 public class UpgradeDisplay : MonoBehaviour
 {
     public Upgrade upgrade;
+    public Upgrade loading;
     public GameObject upgradeManager;
     public GameObject upgradeMenu;
 
@@ -44,8 +45,16 @@ public class UpgradeDisplay : MonoBehaviour
             upgrade = upgradeManager.GetComponent<UpgradeRandomizer>().currentUpgrade3;
         }
 
-        upgradeName.text = upgrade.upgradeName;
-        artwork.sprite = upgrade.artwork;
+        if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] >= 3)
+        {
+            upgradeName.text = loading.upgradeName;
+            artwork.sprite = loading.artwork;
+        }
+        else
+        {
+            upgradeName.text = upgrade.upgradeName;
+            artwork.sprite = upgrade.artwork;
+        }
 
         if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] == 0)
         {
@@ -59,6 +68,9 @@ public class UpgradeDisplay : MonoBehaviour
         }else if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] == 3)
         {
             description.text = upgrade.lvl4Description;
+        }else if (upgradeManager.GetComponent<UpgradeDatabase>().level[upgrade.ID] >= 3)
+        {
+            description.text = loading.lvl1Description;
         }
     }
 }

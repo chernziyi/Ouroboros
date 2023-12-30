@@ -14,13 +14,19 @@ public class Enemy : MonoBehaviour
     public float soulDrop;
     [SerializeField] GameObject soul;
 
+    public GameObject upgradeManager;
+
     private void Start()
     {
+        upgradeManager = GameObject.FindGameObjectWithTag("UpgradeManager");
         pCount = poisonDuration;
     }
 
     private void Update()
     {
+        poisonDPS = upgradeManager.GetComponent<UpgradeProcessor>().poisonDPSFinal;
+        poisonDuration = upgradeManager.GetComponent<UpgradeProcessor>().poisonDurationFinal;
+
         if (poisonStack > 0)
         {
             if(pCount <= 0)

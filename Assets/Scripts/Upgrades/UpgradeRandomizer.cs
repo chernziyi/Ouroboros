@@ -28,6 +28,31 @@ public class UpgradeRandomizer : MonoBehaviour
         }
     }
 
+    public void ResetCheck(int slot)
+    {
+        if (slot == 1)
+        {
+            if (GetComponent<UpgradeDatabase>().level[currentUpgrade1.ID] >= 4)
+            {
+                RandomUpgrade(1);
+            }
+        }
+        else if (slot == 2)
+        {
+            if (currentUpgrade2 == currentUpgrade1 || GetComponent<UpgradeDatabase>().level[currentUpgrade2.ID] >= 4)
+            {
+                RandomUpgrade(2);
+            }
+        }
+        else if (slot == 3)
+        {
+            if (currentUpgrade3 == currentUpgrade1 || currentUpgrade3 == currentUpgrade2 || GetComponent<UpgradeDatabase>().level[currentUpgrade3.ID] >= 4)
+            {
+                RandomUpgrade(3);
+            }
+        }
+    }
+
     public void LevelUp()
     {
         UpgradeMenu(3);
@@ -53,27 +78,17 @@ public class UpgradeRandomizer : MonoBehaviour
             if (slot == 1)
             {
                 currentUpgrade1 = cUpgrades[Random.Range(0, cUpgrades.Length)];
-                if (GetComponent<UpgradeDatabase>().level[currentUpgrade1.ID] >= 4)
-                {
-                    RandomUpgrade(1);
-                }
             }
             else if (slot == 2)
             {
                 currentUpgrade2 = cUpgrades[Random.Range(0, cUpgrades.Length)];
-                if (currentUpgrade2 == currentUpgrade1 || GetComponent<UpgradeDatabase>().level[currentUpgrade2.ID] >= 4)
-                {
-                    RandomUpgrade(2);
-                }
             }
             else if (slot == 3)
             {
                 currentUpgrade3 = cUpgrades[Random.Range(0, cUpgrades.Length)];
-                if (currentUpgrade3 == currentUpgrade1 || currentUpgrade3 == currentUpgrade2 || GetComponent<UpgradeDatabase>().level[currentUpgrade3.ID] >= 4)
-                {
-                    RandomUpgrade(3);
-                }
             }
+
+            ResetCheck(slot);
 
         }
         else if (rarity <= rWeight + cWeight && rarity > cWeight)
@@ -86,19 +101,14 @@ public class UpgradeRandomizer : MonoBehaviour
             else if (slot == 2)
             {
                 currentUpgrade2 = rUpgrades[Random.Range(0, rUpgrades.Length)];
-                if (currentUpgrade2 == currentUpgrade1)
-                {
-                    RandomUpgrade(2);
-                }
             }
             else if (slot == 3)
             {
                 currentUpgrade3 = rUpgrades[Random.Range(0, rUpgrades.Length)];
-                if ((currentUpgrade3 == currentUpgrade1) || (currentUpgrade3 == currentUpgrade2))
-                {
-                    RandomUpgrade(3);
-                }
             }
+
+            ResetCheck(slot);
+
         }
         else if (rarity <= rWeight + cWeight + eWeight && rarity > rWeight + cWeight)
         {
@@ -110,19 +120,14 @@ public class UpgradeRandomizer : MonoBehaviour
             else if (slot == 2)
             {
                 currentUpgrade2 = eUpgrades[Random.Range(0, eUpgrades.Length)];
-                if (currentUpgrade2 == currentUpgrade1)
-                {
-                    RandomUpgrade(2);
-                }
             }
             else if (slot == 3)
             {
                 currentUpgrade3 = eUpgrades[Random.Range(0, eUpgrades.Length)];
-                if ((currentUpgrade3 == currentUpgrade1) || (currentUpgrade3 == currentUpgrade2))
-                {
-                    RandomUpgrade(3);
-                }
             }
+
+            ResetCheck(slot);
+
         }
         else if (rarity <= rWeight + cWeight + eWeight + lWeight && rarity > rWeight + cWeight + eWeight)
         {
@@ -134,18 +139,10 @@ public class UpgradeRandomizer : MonoBehaviour
             else if (slot == 2)
             {
                 currentUpgrade2 = lUpgrades[Random.Range(0, lUpgrades.Length)];
-                if (currentUpgrade2 == currentUpgrade1)
-                {
-                    RandomUpgrade(2);
-                }
             }
             else if (slot == 3)
             {
                 currentUpgrade3 = lUpgrades[Random.Range(0, lUpgrades.Length)];
-                if ((currentUpgrade3 == currentUpgrade1) || (currentUpgrade3 == currentUpgrade2))
-                {
-                    RandomUpgrade(3);
-                }
             }
         }
 
