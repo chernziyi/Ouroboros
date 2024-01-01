@@ -27,6 +27,9 @@ public class ScaredBehaviour : StateMachineBehaviour
             if (Vector2.Distance(animator.transform.position, playerPos.position) < braveRadius)
             {
                 animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPos.position, -speed * Time.deltaTime);
+                Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - animator.transform.position; //non homing shite
+                float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                animator.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + 90);
             }
             else
             {

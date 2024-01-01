@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.35, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: b8d5a865fc7944b4c8000c8a37bbd757, type: 3}
-  m_Color: {r: 0.2488875, g: 0.4433962, b: 0.27494505, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cb4d500dfc76d4e328cd829363d05513, type: 3}
+  m_Color: {r: 0.4672481, g: 0.7924528, b: 0.5148601, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.48, y: 0.48}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   poisonDuration: 2
   soulDrop: 5
   soul: {fileID: 8779972021732132531, guid: 1130ea254d820496aa5cff05195131e0, type: 3}
+  upgradeManager: {fileID: 0}
 --- !u!114 &2170980922890510688
 MonoBehaviour:
   m_ObjectHideFlags: 0

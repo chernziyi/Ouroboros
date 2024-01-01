@@ -23,6 +23,10 @@ public class RushBehaviour : StateMachineBehaviour
 
         wTimer = windup + Random.Range(0, delay);
         dTimer = duration;
+
+        Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - animator.transform.position; //non homing shite
+        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        animator.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

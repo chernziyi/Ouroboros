@@ -22,6 +22,7 @@ public class ShootBehaviour : StateMachineBehaviour
         playerPos.y = GameObject.FindGameObjectWithTag("Player").transform.position.y;
 
         wTimer = windup + Random.Range(0, delay);
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -29,6 +30,10 @@ public class ShootBehaviour : StateMachineBehaviour
     {
         if (wTimer <= 0)
         {
+            Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - animator.transform.position; //non homing shite
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            animator.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 30);
+
             Instantiate(projectile, animator.transform.position, Quaternion.identity);
 
             animator.SetBool("Shoot", false);
@@ -53,6 +58,9 @@ public class ShootBehaviour : StateMachineBehaviour
                 }
             }
 
+            Vector3 difference = GameObject.FindGameObjectWithTag("Player").transform.position - animator.transform.position; //non homing shite
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            animator.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
             wTimer -= Time.deltaTime;
         }
     }

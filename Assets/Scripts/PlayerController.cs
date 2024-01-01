@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
+            SceneManager.LoadScene(0);
             Destroy(gameObject);
             Debug.Log("Game Over");
         }
